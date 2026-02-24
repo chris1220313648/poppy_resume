@@ -524,20 +524,6 @@ a {
   color: var(--muted);
 }
 
-.modal-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
-}
-
-.modal-gallery img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background: #fff;
-}
 
 .footer {
   text-align: center;

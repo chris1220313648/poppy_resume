@@ -144,7 +144,6 @@ const modalCategory = document.getElementById("modal-category");
 const modalMeta = document.getElementById("modal-meta");
 const modalDesc = document.getElementById("modal-desc");
 const modalList = document.getElementById("modal-list");
-const modalGallery = document.getElementById("modal-gallery");
 const modalHero = document.getElementById("modal-hero");
 
 const imagePath = (file) => `${imageBase}/${file}`;
@@ -200,24 +199,6 @@ function openModal(item) {
     modalHero.removeAttribute("src");
     modalHero.alt = "";
   }
-
-  modalGallery.innerHTML = "";
-  const images = (item.images || []).slice(0, 8);
-  images.forEach((file) => {
-    const link = document.createElement("a");
-    link.href = imagePath(file);
-    link.target = "_blank";
-    link.rel = "noopener";
-
-    const img = document.createElement("img");
-    img.src = imagePath(file);
-    img.alt = item.title;
-    img.addEventListener("error", () => {
-      link.replaceWith(createImageFallback("图片加载失败"));
-    });
-    link.appendChild(img);
-    modalGallery.appendChild(link);
-  });
 
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
