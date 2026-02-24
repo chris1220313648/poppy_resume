@@ -145,6 +145,7 @@ const modalMeta = document.getElementById("modal-meta");
 const modalDesc = document.getElementById("modal-desc");
 const modalList = document.getElementById("modal-list");
 const modalGallery = document.getElementById("modal-gallery");
+const modalHero = document.getElementById("modal-hero");
 
 const imagePath = (file) => `${imageBase}/${file}`;
 
@@ -190,6 +191,15 @@ function openModal(item) {
     li.textContent = text;
     modalList.appendChild(li);
   });
+
+  const heroImage = (item.images || [])[0];
+  if (heroImage) {
+    modalHero.src = imagePath(heroImage);
+    modalHero.alt = item.title;
+  } else {
+    modalHero.removeAttribute("src");
+    modalHero.alt = "";
+  }
 
   modalGallery.innerHTML = "";
   const images = (item.images || []).slice(0, 8);
