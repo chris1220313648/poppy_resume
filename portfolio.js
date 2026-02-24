@@ -158,7 +158,7 @@ function renderCards() {
     const thumb = images.length ? imagePath(images[0]) : "";
 
     card.innerHTML = `
-      ${thumb ? `<img class="portfolio-thumb" src="${thumb}" alt="${item.title}">` : `<div class="portfolio-thumb"></div>`}
+      ${thumb ? `<img class="portfolio-thumb" src="${thumb}" alt="${item.title}" data-image>` : `<div class="portfolio-thumb"></div>`}
       <div class="portfolio-content">
         <div class="portfolio-tag">${item.category}</div>
         <div class="portfolio-title">${item.title}</div>
@@ -168,6 +168,13 @@ function renderCards() {
 
     card.addEventListener("click", () => openModal(item));
     grid.appendChild(card);
+
+    const img = card.querySelector("[data-image]");
+    if (img) {
+      img.addEventListener("error", () => {
+        img.replaceWith(createImageFallback(item.title));
+      });
+    }
   });
 }
 
@@ -195,6 +202,9 @@ function openModal(item) {
     const img = document.createElement("img");
     img.src = imagePath(file);
     img.alt = item.title;
+    img.addEventListener("error", () => {
+      link.replaceWith(createImageFallback("图片加载失败"));
+    });
     link.appendChild(img);
     modalGallery.appendChild(link);
   });
@@ -221,3 +231,10 @@ document.addEventListener("keydown", (event) => {
 });
 
 renderCards();
+
+function createImageFallback(label) {
+  const div = document.createElement("div");
+  div.className = "image-fallback";
+  div.textContent = label;
+  return div;
+}

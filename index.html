@@ -179,40 +179,26 @@
     <section class="section" id="portfolio">
       <div class="container">
         <h2>作品集精选</h2>
-        <div class="portfolio-grid">
-          <article class="portfolio-item">
-            <h3>《让我坚持下去的是热爱》</h3>
-            <p>竖屏创意短片｜2022｜策划/编剧/导演/拍摄/剪辑</p>
-            <p class="note">获奖：长三角大学生短视频大赛三等奖</p>
-          </article>
-          <article class="portfolio-item">
-            <h3>《瞒天过海》大失败？如何站在巨人的肩膀上讲故事</h3>
-            <p>视频类影评｜2024｜策划/编剧/导演/拍摄/剪辑</p>
-            <p class="note">获奖：泰山·大学生影评大赛银奖</p>
-          </article>
-          <article class="portfolio-item">
-            <h3>《吟游诗人》</h3>
-            <p>纪录片｜2024｜制片</p>
-            <p class="note">获奖：北师大“学院影视奖”</p>
-          </article>
-          <article class="portfolio-item">
-            <h3>《湾区十二时辰》</h3>
-            <p>纪录片｜2023｜剪辑</p>
-            <p class="note">获奖：华语纪录电影大会“印象珠海”入围</p>
-          </article>
-          <article class="portfolio-item">
-            <h3>品牌与平台内容</h3>
-            <p>心理中心公众号 25+ 篇原创｜累计阅读 30,000+</p>
-            <p class="note">栏目策划、内容撰写与版式设计</p>
-          </article>
-          <article class="portfolio-item">
-            <h3>数据新闻与报道</h3>
-            <p>《白玉兰奖纪录片评委…》｜中国青年报</p>
-            <p class="note">《数说传染病后遗症》｜大学生校园媒体大赛三等奖</p>
-          </article>
-        </div>
+        <div class="portfolio-cards" id="portfolio-grid"></div>
       </div>
     </section>
+
+    <div class="modal" id="portfolio-modal" aria-hidden="true">
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-panel" role="dialog" aria-modal="true">
+        <button class="modal-close" type="button" data-close>关闭</button>
+        <div class="modal-body">
+          <div class="modal-header">
+            <p class="modal-category" id="modal-category"></p>
+            <h3 id="modal-title"></h3>
+            <p class="modal-meta" id="modal-meta"></p>
+          </div>
+          <p class="modal-desc" id="modal-desc"></p>
+          <ul class="modal-list" id="modal-list"></ul>
+          <div class="modal-gallery" id="modal-gallery"></div>
+        </div>
+      </div>
+    </div>
 
     <section class="section" id="skills">
       <div class="container">
@@ -271,5 +257,6 @@
   <footer class="footer">
     © 2026 林欢 · Poppy Lin. All rights reserved.
   </footer>
+  <script src="./portfolio.js"></script>
 </body>
 </html>
