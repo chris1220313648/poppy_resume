@@ -9,8 +9,8 @@
   --line: rgba(29, 28, 26, 0.12);
   --shadow: 0 18px 45px rgba(29, 28, 26, 0.12);
   --radius: 18px;
-  --font-title: "ZCOOL XiaoWei", "Noto Serif SC", serif;
-  --font-body: "Source Sans 3", "Noto Sans SC", sans-serif;
+  --font-title: "SimSun", "宋体", serif;
+  --font-body: "SimSun", "宋体", serif;
 }
 
 * {
